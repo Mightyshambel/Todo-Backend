@@ -1,12 +1,17 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { TaskModule } from 'src/task/task.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://admin:password@cluster0.ijtl1.mongodb.net/',
-    ),
+    TypeOrmModule.forRoot({
+      type: 'mongodb',
+      url: 'mongodb+srv://admin:securePassword123@cluster0.ijtl1.mongodb.net/enpal-todo-list',
+      database: 'enpal-todo-list',
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      synchronize: true,
+      useUnifiedTopology: true,
+    }),
     TaskModule,
   ],
 })
