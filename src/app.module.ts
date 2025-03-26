@@ -6,7 +6,7 @@ import { TaskModule } from 'src/task/task.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: 'mongodb+srv://admin:securePassword123@cluster0.ijtl1.mongodb.net/enpal-todo-list',
+      url: 'mongodb+srv://admin:Password123@cluster0.ijtl1.mongodb.net/enpal-todo-list',
       database: 'enpal-todo-list',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
