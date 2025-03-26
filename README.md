@@ -21,77 +21,123 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# Todo List Backend (NestJS + MongoDB)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is the backend for the Todo List application, built using **NestJS** and **MongoDB** with a REST API.
 
-## Project setup
+## Features
+- CRUD operations for tasks
+- RESTful API with NestJS
+- MongoDB as the database
+- Uses Mongoose for schema modeling
+- Error handling and validation
 
-```bash
-$ npm install
+## Prerequisites
+Make sure you have the following installed:
+- **Node.js** (>=16.x)
+- **MongoDB** (local or cloud-based like MongoDB Atlas)
+- **npm** (or yarn)
+
+## Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/todo-nestjs-backend.git
+   cd todo-nestjs-backend
+   ```
+
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+
+3. Set up environment variables:
+   Create a `.env` file in the root directory and configure it as follows:
+   ```env
+   PORT=3000
+   MONGO_URI=mongodb://localhost:27017/todo_db  # Change if using MongoDB Atlas
+   ```
+
+4. Start the server:
+   ```sh
+   npm run start:dev
+   ```
+
+## API Endpoints
+
+### 1. Get all tasks
+   ```http
+   GET /tasks
+   ```
+   **Response:**
+   ```json
+   [
+     {
+       "_id": "60a8fcd1...
+       "description": "Buy groceries",
+       "done": false
+     }
+   ]
+   ```
+
+### 2. Create a new task
+   ```http
+   POST /tasks
+   ```
+   **Body:**
+   ```json
+   {
+     "description": "New task"
+   }
+   ```
+
+### 3. Update a task
+   ```http
+   PATCH /tasks/:id
+   ```
+   **Body:**
+   ```json
+   {
+     "done": true
+   }
+   ```
+
+### 4. Delete a task
+   ```http
+   DELETE /tasks/:id
+   ```
+
+## Project Structure
+```
+📂 todo-nestjs-backend
+ ├── src
+ │   ├── tasks
+ │   │   ├── dto
+ │   │   ├── schemas
+ │   │   ├── tasks.controller.ts
+ │   │   ├── tasks.service.ts
+ │   ├── app.module.ts
+ │   ├── main.ts
+ ├── .env
+ ├── package.json
+ ├── README.md
 ```
 
-## Compile and run the project
+## Technologies Used
+- **NestJS** (TypeScript framework for Node.js)
+- **MongoDB** (NoSQL database)
+- **Mongoose** (ODM for MongoDB)
+- **Swagger** (for API documentation)
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+## Running with Docker (Optional)
+If you want to run the backend with Docker:
+```sh
+docker-compose up -d
 ```
 
-## Run tests
+## License
+MIT License
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 
